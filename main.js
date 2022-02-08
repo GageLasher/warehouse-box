@@ -16,7 +16,7 @@ const packages = [
        for (let i = 0; i < current.length; i++) {
            const package = current[i];
            template += `
-           <tr>
+           <tr id="${package.to}">
               <th>Heavy</th>
               <th>Priority</th>
               <th>Fragile</th>
@@ -62,8 +62,10 @@ const packages = [
         let lostPackage = packages.find(package => package.lost)
         if (lostPackage.to == name) {
             alert('You found the lost package')
+            document.getElementById(name).classList.add('green')
         } else {
             alert('This package is not lost')
+            document.getElementById(name).classList.add('grey')
         }
         form.reset()
      
